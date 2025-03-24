@@ -1,0 +1,9 @@
+# IT copy file from CN to MN when MN is ubuntu
+- name: Copy file if MN is Ubuntu
+  hosts: all # Replace with actual inventory host
+  tasks:
+    - name: Copy file to MN
+      copy:
+        src: /home/ubuntu/control_test.txt
+        dest: /home/ubuntu/control_test.txt
+      when: ansible_distribution == "Ubuntu"

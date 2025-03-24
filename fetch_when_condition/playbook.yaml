@@ -1,0 +1,11 @@
+# It fetch file from MN to CN when the distribution is ubuntu
+
+- name: Fetch file from Ubuntu MN to CN
+  hosts: all
+  tasks:
+    - name: Fetch file to CN
+      ansible.builtin.fetch:
+        src: /home/ubuntu/control_test-2.txt
+        dest: /home/ubuntu/control_test-2.txt
+        flat: yes
+      when: ansible_distribution == "Ubuntu"
