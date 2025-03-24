@@ -1,13 +1,6 @@
 # This is to check file exists on MN from CN
 - hosts: all
   tasks:
-    - name: Create a test file on MN
-      file:
-        path: /tmp/testfile-1.txt
-        state: touch
-ubuntu@controlnode:~$ cat playbook.yaml
-- hosts: all
-  tasks:
     - name: Check if file exists
       stat:
         path: /tmp/testfile-15.txt
