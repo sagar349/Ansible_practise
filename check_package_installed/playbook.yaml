@@ -1,0 +1,15 @@
+---
+- name: Check if Nginx is installed
+  hosts: all
+  become: yes
+  tasks:
+    - name: Check Nginx installation
+      ansible.builtin.command: dpkg-query -W -f='${Status}' nginx
+      register: nginx_status
+      changed_when: false
+      ignore_errors: true
+
+    - name: Display Nginx installation status
+      ansible.builtin.debug:
+        msg: "Nginx is installed"
+      when: "'install ok installed' in nginx_status.stdout"
