@@ -1,0 +1,7 @@
+# This is to create a file on MN from CN
+- hosts: all
+  tasks:
+    - name: Create a test file on MN
+      file:
+        path: /tmp/testfile-1.txt
+        state: touch
