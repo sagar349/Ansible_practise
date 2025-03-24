@@ -1,0 +1,8 @@
+- name: Fetch file from remote machine
+  hosts: all
+  tasks:
+    - name: Fetch file
+      ansible.builtin.fetch:
+        src: /tmp/testfile.txt
+        dest: /tmp/testfile.txt/
+        flat: yes
