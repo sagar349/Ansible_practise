@@ -1,0 +1,12 @@
+- name: Check Nginx service status on MN
+  hosts: all
+  become: yes
+  tasks:
+    - name: Get service status
+      ansible.builtin.systemd:
+        name: nginx
+      register: service_status
+
+    - name: Show service status
+      debug:
+        var: service_status.status.ActiveState
