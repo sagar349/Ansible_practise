@@ -2,7 +2,7 @@
 - hosts: all
   tasks:
     - name: Check if file exists
-      stat:
+      ansible.builtin.stat:
         path: /tmp/testfile-15.txt
       register: file_status
 
